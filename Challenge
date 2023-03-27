@@ -1,0 +1,119 @@
+CREATE TABLE t_chatbot (
+    id_chatbot            NUMBER(5) NOT NULL,
+    id_usuario            NUMBER(5) NOT NULL,
+    area_assunto          VARCHAR2(50) NOT NULL,
+    api_key_chatbot       VARCHAR2(50) NOT NULL,
+    assistentid_chatbot   NUMBER(5) NOT NULL,
+    ibmcloudemail_chatbot VARCHAR2(50) NOT NULL,
+    ibmcloudpw_chatbot    VARCHAR2(50) NOT NULL,
+    perg_usuario          VARCHAR2(100) NOT NULL,
+    resp_chatbot          VARCHAR2(100) NOT NULL
+);
+
+ALTER TABLE t_chatbot ADD CONSTRAINT t_chatbot_pk PRIMARY KEY ( id_chatbot,
+                                                                id_usuario );
+
+CREATE TABLE t_guia_invest (
+    id_guia_invest NUMBER(5) NOT NULL,
+    id_provas      NUMBER(5) NOT NULL,
+    provas_assunto VARCHAR2(50) NOT NULL,
+    provas_geral   VARCHAR2(50) NOT NULL
+);
+
+ALTER TABLE t_guia_invest ADD CONSTRAINT t_guia_invest_pk PRIMARY KEY ( id_guia_invest,
+                                                                        id_provas );
+
+CREATE TABLE t_permissoes (
+    id_permissoes NUMBER(5) NOT NULL,
+    id_usuario    NUMBER(5) NOT NULL,
+    funcoes       VARCHAR2(50) NOT NULL,
+    cargos        VARCHAR2(50) NOT NULL
+);
+
+ALTER TABLE t_permissoes ADD CONSTRAINT t_permissoes_pk PRIMARY KEY ( id_permissoes,
+                                                                      id_usuario );
+
+CREATE TABLE t_premio_usuario (
+    id_premiousuario NUMBER(5) NOT NULL,
+    id_usuario       NUMBER(5) NOT NULL,
+    premio_usuario   VARCHAR2(50) NOT NULL
+);
+
+ALTER TABLE t_premio_usuario ADD CONSTRAINT t_premio_usuario_pk PRIMARY KEY ( id_premiousuario,
+                                                                              id_usuario );
+
+CREATE TABLE t_progresso_usuario (
+    id_progressousuario   NUMBER(5) NOT NULL,
+    id_premiousuario      NUMBER(5) NOT NULL,
+    id_usuario            NUMBER(5) NOT NULL,
+    nivel_total_usuario   VARCHAR2(20) NOT NULL,
+    nivel_assunto_usuario VARCHAR2(20) NOT NULL,
+    dt_inicio_usuario     DATE NOT NULL
+);
+
+ALTER TABLE t_progresso_usuario
+    ADD CONSTRAINT t_progresso_usuario_pk PRIMARY KEY ( id_progressousuario,
+                                                        id_premiousuario,
+                                                        id_usuario );
+
+CREATE TABLE t_provas (
+    id_provas             NUMBER(5) NOT NULL,
+    provas_assunto        VARCHAR2(50) NOT NULL,
+    datas_provas          DATE NOT NULL,
+    result_provas_usuario VARCHAR2(10) NOT NULL
+);
+
+ALTER TABLE t_provas ADD CONSTRAINT t_provas_pk PRIMARY KEY ( id_provas );
+
+CREATE TABLE t_usuario (
+    id_usuario       NUMBER(5) NOT NULL,
+    cpf_usuario      NUMBER(11) NOT NULL,
+    nome_usuario     VARCHAR2(50) NOT NULL,
+    email_usuario    VARCHAR2(100) NOT NULL,
+    dt_nasc_usuario  DATE NOT NULL,
+    endereco_usuario VARCHAR2(100) NOT NULL,
+    numero_endereco  NUMBER(5) NOT NULL,
+    cep_usuario      NUMBER(8) NOT NULL
+);
+
+ALTER TABLE t_usuario ADD CONSTRAINT t_usuario_pk PRIMARY KEY ( id_usuario );
+
+CREATE TABLE t_usuario_prova (
+    id_usuario      NUMBER(5) NOT NULL,
+    id_provas       NUMBER(5) NOT NULL,
+    hora_realizacao DATE NOT NULL,
+    data_realizacao DATE
+);
+
+ALTER TABLE t_usuario_prova ADD CONSTRAINT t_usuario_prova_pk PRIMARY KEY ( id_usuario,
+                                                                            id_provas );
+
+ALTER TABLE t_progresso_usuario
+    ADD CONSTRAINT fk_premio_progresso FOREIGN KEY ( id_premiousuario,
+                                                     id_usuario )
+        REFERENCES t_premio_usuario ( id_premiousuario,
+                                      id_usuario );
+
+ALTER TABLE t_guia_invest
+    ADD CONSTRAINT fk_provas_guiainvest FOREIGN KEY ( id_provas )
+        REFERENCES t_provas ( id_provas );
+
+ALTER TABLE t_usuario_prova
+    ADD CONSTRAINT fk_provas_usprovas FOREIGN KEY ( id_provas )
+        REFERENCES t_provas ( id_provas );
+
+ALTER TABLE t_chatbot
+    ADD CONSTRAINT fk_usuario_chatbot FOREIGN KEY ( id_usuario )
+        REFERENCES t_usuario ( id_usuario );
+
+ALTER TABLE t_permissoes
+    ADD CONSTRAINT fk_usuario_permissoes FOREIGN KEY ( id_usuario )
+        REFERENCES t_usuario ( id_usuario );
+
+ALTER TABLE t_premio_usuario
+    ADD CONSTRAINT fk_usuario_premio FOREIGN KEY ( id_usuario )
+        REFERENCES t_usuario ( id_usuario );
+
+ALTER TABLE t_usuario_prova
+    ADD CONSTRAINT fk_usuario_usprovas FOREIGN KEY ( id_usuario )
+        REFERENCES t_usuario ( id_usuario );
