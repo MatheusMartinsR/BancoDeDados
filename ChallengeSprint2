@@ -1,0 +1,131 @@
+CREATE TABLE t_usuario (
+    id_usuario       NUMBER(5) NOT NULL,
+    cpf_usuario      VARCHAR2(11) NOT NULL,
+    nome_usuario     VARCHAR2(100) NOT NULL,
+    email_usuario    VARCHAR2(100) NOT NULL,
+    idade_usuario    NUMBER(5) NOT NULL,
+    endereco_usuario VARCHAR2(100) NOT NULL,
+    numero_endereco  NUMBER(5) NOT NULL,
+    cep_usuario      NUMBER(8) NOT NULL,
+    senha            VARCHAR2(10) NOT NULL
+);
+
+ALTER TABLE t_usuario ADD CONSTRAINT t_usuario_pk PRIMARY KEY ( id_usuario );
+
+CREATE TABLE t_provas (
+    id_provas             NUMBER(5) NOT NULL,
+    id_usuario            NUMBER(5) NOT NULL,
+    provas_assunto        VARCHAR2(120) NOT NULL,
+    datas_provas          DATE NOT NULL,
+    result_provas_usuario VARCHAR2(20) NOT NULL,
+    nota_prova            NUMBER(2, 1) NOT NULL,
+    descricao_provas      VARCHAR2(100) NOT NULL,
+    taxa_acertividade     NUMBER(2, 1) NOT NULL,
+    status_provas         VARCHAR2(20) NOT NULL,
+    duracao_provas        TIMESTAMP(2) NOT NULL
+);
+
+ALTER TABLE t_provas ADD CONSTRAINT t_provas_pk PRIMARY KEY ( id_provas,
+                                                              id_usuario );
+CREATE TABLE t_feedbacks (
+    id_feedbacks         NUMBER(5) NOT NULL,
+    id_usuario           NUMBER(5) NOT NULL,
+    data_feedbacks       DATE NOT NULL,
+    nome_us_feedbacks    VARCHAR2(100) NOT NULL,
+    email_us_feedbacks   VARCHAR2(100) NOT NULL,
+    tipo_feedbacks       VARCHAR2(50) NOT NULL,
+    descricao_feedbacks  VARCHAR2(1000) NOT NULL,
+    reposta_us_feedbacks VARCHAR2(1000) NOT NULL
+);
+
+ALTER TABLE t_feedbacks ADD CONSTRAINT t_feedbacks_pk PRIMARY KEY ( id_feedbacks,
+                                                                    id_usuario );
+
+CREATE TABLE t_permissoes (
+    id_permissoes        NUMBER(5) NOT NULL,
+    id_usuario           NUMBER(5) NOT NULL,
+    dt_criacao_permi     DATE NOT NULL,
+    dt_modificacao_permi DATE NOT NULL,
+    acesso               VARCHAR2(4)
+);
+
+ALTER TABLE t_permissoes ADD CONSTRAINT t_permissoes_pk PRIMARY KEY ( id_permissoes,
+                                                                      id_usuario );
+
+CREATE TABLE t_guia_invest (
+    id_guia_invest   NUMBER(5) NOT NULL,
+    id_provas        NUMBER(5) NOT NULL,
+    id_usuario       NUMBER(5) NOT NULL,
+    provas_assunto   VARCHAR2(100) NOT NULL,
+    provas_geral     VARCHAR2(100) NOT NULL,
+    materia_guia     VARCHAR2(100) NOT NULL,
+    descricao_provas VARCHAR2(100) NOT NULL,
+    lista_ex         VARCHAR2(200) NOT NULL,
+    dt_inicio_guia   DATE NOT NULL
+);
+
+ALTER TABLE t_guia_invest
+    ADD CONSTRAINT t_guia_invest_pk PRIMARY KEY ( id_guia_invest,
+                                                  id_provas,
+                                                  id_usuario );
+
+CREATE TABLE t_premio_usuario (
+    id_premio_usuario NUMBER(5) NOT NULL,
+    id_usuario        NUMBER(5) NOT NULL,
+    premio_usuario    VARCHAR2(100) NOT NULL,
+    data_premiacao    DATE NOT NULL,
+    data_termino_guia DATE NOT NULL,
+    data_prova        DATE NOT NULL,
+    descricao_premio  VARCHAR2(100) NOT NULL,
+    certificado       VARCHAR2(100) NOT NULL
+);
+
+ALTER TABLE t_premio_usuario ADD CONSTRAINT t_premio_usuario_pk PRIMARY KEY ( id_premio_usuario,
+                                                                              id_usuario );
+
+CREATE TABLE t_progresso (
+    id_progresso            NUMBER(5) NOT NULL,
+    id_premio_usuario       NUMBER(5) NOT NULL,
+    id_usuario              NUMBER(5) NOT NULL,
+    nivel_total_usuario     NUMBER(1) NOT NULL,
+    nivel_total_assunto     NUMBER(1) NOT NULL,
+    dt_inicio               DATE NOT NULL,
+    descricao_nivel_usuario VARCHAR2(100) NOT NULL,
+    dt_ultimo_login         DATE NOT NULL,
+    dt_termino              DATE NOT NULL
+);
+
+ALTER TABLE t_progresso
+    ADD CONSTRAINT t_progresso_pk PRIMARY KEY ( id_progresso,
+                                                id_premio_usuario,
+                                                id_usuario );
+
+ALTER TABLE t_usuario ADD CONSTRAINT t_usuario_pk PRIMARY KEY ( id_usuario );
+
+ALTER TABLE t_progresso
+    ADD CONSTRAINT fk_premio_progresso FOREIGN KEY ( id_premio_usuario,
+                                                     id_usuario )
+        REFERENCES t_premio_usuario ( id_premio_usuario,
+                                      id_usuario );
+
+ALTER TABLE t_guia_invest
+    ADD CONSTRAINT fk_provas_guia FOREIGN KEY ( id_provas,
+                                                id_usuario )
+        REFERENCES t_provas ( id_provas,
+                              id_usuario );
+
+ALTER TABLE t_feedbacks
+    ADD CONSTRAINT fk_usuario_feedback FOREIGN KEY ( id_usuario )
+        REFERENCES t_usuario ( id_usuario );
+
+ALTER TABLE t_permissoes
+    ADD CONSTRAINT fk_usuario_permissoes FOREIGN KEY ( id_usuario )
+        REFERENCES t_usuario ( id_usuario );
+
+ALTER TABLE t_premio_usuario
+    ADD CONSTRAINT fk_usuario_premio FOREIGN KEY ( id_usuario )
+        REFERENCES t_usuario ( id_usuario );
+
+ALTER TABLE t_provas
+    ADD CONSTRAINT fk_usuario_provas FOREIGN KEY ( id_usuario )
+        REFERENCES t_usuario ( id_usuario );
