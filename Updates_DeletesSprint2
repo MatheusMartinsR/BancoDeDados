@@ -1,0 +1,16 @@
+UPDATES T_USUARIO:
+
+UPDATE t_usuario SET nome_usuario = 'JoÃ£o da Silva' WHERE id_usuario = 1;
+
+UPDATE t_usuario SET idade_usuario = 30, endereco_usuario = 'Rua das Flores', numero_endereco = 100 WHERE id_usuario = 2;
+
+UPDATE t_usuario SET senha = 'novasenha123' WHERE id_usuario = 3;
+
+
+DELETE T_USUARIO:
+
+DELETE FROM t_usuario WHERE id_usuario = 6;
+
+DELETE FROM t_usuario WHERE id_usuario = 7;
+
+DELETE FROM t_usuario WHERE id_usuario = 10; 
