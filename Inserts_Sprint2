@@ -1,0 +1,151 @@
+INSERT T_USUARIO: 
+
+INSERT INTO t_usuario (id_usuario, cpf_usuario, nome_usuario, email_usuario, idade_usuario, endereco_usuario, numero_endereco, cep_usuario, senha)
+VALUES (1, '12345678901', 'Enzo', 'Enzo@example.com', 30, 'Rua A', 123, 12345678, 'senha123');
+
+INSERT INTO t_usuario (id_usuario, cpf_usuario, nome_usuario, email_usuario, idade_usuario, endereco_usuario, numero_endereco, cep_usuario, senha)
+VALUES (2, '98765432109', 'Augusto', 'Augusto@example.com', 25, 'Rua B', 456, 87654321, 'senha456');
+
+INSERT INTO t_usuario (id_usuario, cpf_usuario, nome_usuario, email_usuario, idade_usuario, endereco_usuario, numero_endereco, cep_usuario, senha)
+VALUES (3, '45678901234', 'Matheus', 'Matheus@example.com', 35, 'Rua C', 789, 54321098, 'senha789');
+
+INSERT INTO t_usuario (id_usuario, cpf_usuario, nome_usuario, email_usuario, idade_usuario, endereco_usuario, numero_endereco, cep_usuario, senha)
+VALUES (4, '56789012345', 'Kaik', 'Kaik@example.com', 28, 'Rua D', 987, 10987654, 'senha987');
+
+INSERT INTO t_usuario (id_usuario, cpf_usuario, nome_usuario, email_usuario, idade_usuario, endereco_usuario, numero_endereco, cep_usuario, senha)
+VALUES (5, '98765432123', 'Lucas', 'lucas@example.com', 32, 'Rua E', 654, 32109876, 'senha321');
+
+INSERT INTO t_usuario (id_usuario, cpf_usuario, nome_usuario, email_usuario, idade_usuario, endereco_usuario, numero_endereco, cep_usuario, senha)
+VALUES (6, '39590226874', 'Pedro', 'p@gmail.com', 20, 'Av P', 200, 4363050, 'Pedro2003');
+
+INSERT INTO t_usuario (id_usuario, cpf_usuario, nome_usuario, email_usuario, idade_usuario, endereco_usuario, numero_endereco, cep_usuario, senha)
+VALUES (7, '05915222501', 'Fe', 'Fe@gmail.com', 20, 'Hungria', 451, 44655000, '2020');
+
+INSERTS T_PROGRESSO: 
+
+INSERT INTO t_progresso (id_progresso, id_premio_usuario, id_usuario, nivel_total_usuario, nivel_total_assunto, dt_inicio, descricao_nivel_usuario, dt_ultimo_login, dt_termino)
+VALUES (1, 1001, 5001, 2, 3, TO_DATE('2023-01-01', 'YYYY-MM-DD'), 'Nível Intermediário', TO_DATE('2023-04-20', 'YYYY-MM-DD'), TO_DATE('2023-05-05', 'YYYY-MM-DD'));
+
+INSERT INTO t_progresso (id_progresso, id_premio_usuario, id_usuario, nivel_total_usuario, nivel_total_assunto, dt_inicio, descricao_nivel_usuario, dt_ultimo_login, dt_termino) VALUES (2, 1, 2, 3, 2, TO_DATE('2023-02-01', 'YYYY-MM-DD'), 'Nível Intermediário', TO_DATE('2023-05-05', 'YYYY-MM-DD'), TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT INTO t_progresso (id_progresso, id_premio_usuario, id_usuario, nivel_total_usuario, nivel_total_assunto, dt_inicio, descricao_nivel_usuario, dt_ultimo_login, dt_termino) VALUES (3, 2, 3, 2, 1, TO_DATE('2023-03-01', 'YYYY-MM-DD'), 'Nível Básico', TO_DATE('2023-05-08', 'YYYY-MM-DD'), TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT INTO t_progresso (id_progresso, id_premio_usuario, id_usuario, nivel_total_usuario, nivel_total_assunto, dt_inicio, descricao_nivel_usuario, dt_ultimo_login, dt_termino) VALUES (4, 2, 4, 1, 1, TO_DATE('2023-01-15', 'YYYY-MM-DD'), 'Nível Básico', TO_DATE('2023-05-01', 'YYYY-MM-DD'), TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT INTO t_progresso (id_progresso, id_premio_usuario, id_usuario, nivel_total_usuario, nivel_total_assunto, dt_inicio, descricao_nivel_usuario, dt_ultimo_login, dt_termino) VALUES (5, 3, 5, 4, 3, TO_DATE('2023-02-15', 'YYYY-MM-DD'), 'Nível Avançado', TO_DATE('2023-05-11', 'YYYY-MM-DD'), TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT INTO t_progresso (id_progresso, id_premio_usuario, id_usuario, nivel_total_usuario, nivel_total_assunto, dt_inicio, descricao_nivel_usuario, dt_ultimo_login, dt_termino) VALUES (6, 3, 6, 2, 1, TO_DATE('2023-01-05', 'YYYY-MM-DD'), 'Nível Básico', TO_DATE('2023-05-06', 'YYYY-MM-DD'), TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT INTO t_progresso (id_progresso, id_premio_usuario, id_usuario, nivel_total_usuario, nivel_total_assunto, dt_inicio, descricao_nivel_usuario, dt_ultimo_login, dt_termino) VALUES (7, 4, 7, 3, 2, TO_DATE('2023-03-15', 'YYYY-MM-DD'), 'Nível Intermediário', TO_DATE('2023-05-10', 'YYYY-MM-DD'), TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT FEEDBACKS:
+
+
+INSERT INTO t_feedbacks (id_feedbacks, id_usuario, data_feedbacks, nome_us_feedbacks, email_us_feedbacks, tipo_feedbacks, descricao_feedbacks, reposta_us_feedbacks)
+VALUES (1, 1001, TO_DATE('2023-05-12', 'YYYY-MM-DD'), 'João Silva', 'joao@example.com', 'Sugestão', 'Ótimo trabalho! Continuem assim.', 'Obrigado pelo seu feedback positivo!');
+
+INSERT INTO t_feedbacks (id_feedbacks, id_usuario, data_feedbacks, nome_us_feedbacks, email_us_feedbacks, tipo_feedbacks, descricao_feedbacks, reposta_us_feedbacks)
+VALUES (2, 1002, TO_DATE('2023-05-11', 'YYYY-MM-DD'), 'Maria Santos', 'maria@example.com', 'Problema', 'Estou tendo dificuldades para acessar o sistema.', 'Lamentamos pelo inconveniente. Vamos verificar e resolver o problema o mais rápido possível.');
+
+INSERT INTO t_feedbacks (id_feedbacks, id_usuario, data_feedbacks, nome_us_feedbacks, email_us_feedbacks, tipo_feedbacks, descricao_feedbacks, reposta_us_feedbacks)
+VALUES (3, 1003, TO_DATE('2023-05-10', 'YYYY-MM-DD'), 'Carlos Ferreira', 'carlos@example.com', 'Elogio', 'Parabéns pela nova funcionalidade! Estou adorando.', 'Ficamos felizes que esteja gostando. Aproveite!');
+
+INSERT INTO t_feedbacks (id_feedbacks, id_usuario, data_feedbacks, nome_us_feedbacks, email_us_feedbacks, tipo_feedbacks, descricao_feedbacks, reposta_us_feedbacks)
+VALUES (4, 1004, TO_DATE('2023-05-09', 'YYYY-MM-DD'), 'Ana Rodrigues', 'ana@example.com', 'Reclamação', 'A velocidade do sistema está muito lenta.', 'Pedimos desculpas pelo transtorno. Vamos investigar e resolver a lentidão.');
+
+INSERT INTO t_feedbacks (id_feedbacks, id_usuario, data_feedbacks, nome_us_feedbacks, email_us_feedbacks, tipo_feedbacks, descricao_feedbacks, reposta_us_feedbacks)
+VALUES (5, 1005, TO_DATE('2023-05-08', 'YYYY-MM-DD'), 'Pedro Almeida', 'pedro@example.com', 'Sugestão', 'Seria interessante adicionar um recurso de pesquisa.', 'Agradecemos sua sugestão. Vamos considerá-la para futuras atualizações.');
+
+INSERT INTO t_feedbacks (id_feedbacks, id_usuario, data_feedbacks, nome_us_feedbacks, email_us_feedbacks, tipo_feedbacks, descricao_feedbacks, reposta_us_feedbacks)
+VALUES (6, 1006, TO_DATE('2023-05-07', 'YYYY-MM-DD'), 'Mariana Costa', 'mariana@example.com', 'Elogio', 'Gostaria de parabenizar toda a equipe pelo excelente atendimento.', 'Agradecemos pelo elogio. Estamos sempre à disposição.');
+
+INSERT INTO t_feedbacks (id_feedbacks, id_usuario, data_feedbacks, nome_us_feedbacks, email_us_feedbacks, tipo_feedbacks, descricao_feedbacks, reposta_us_feedbacks)
+VALUES (7, 1007, TO_DATE('2023-05-06', 'YYYY-MM-DD'), 'José Oliveira', 'jose@example.com', 'Problema', 'Estou encontrando um erro ao tentar fazer login.', 'Vamos verificar e solucionar o problema o mais rápido possível.');
+
+INSERT PERMISSOES 
+
+INSERT INTO t_permissoes (id_permissoes, id_usuario, dt_criacao_permi, dt_modificacao_permi, acesso)
+VALUES (3, 1, TO_DATE('2023-01-01', 'YYYY-MM-DD'), TO_DATE('2023-01-02', 'YYYY-MM-DD'), 'Sim');
+
+INSERT INTO t_permissoes (id_permissoes, id_usuario, dt_criacao_permi, dt_modificacao_permi, acesso)
+VALUES (4, 2, TO_DATE('2023-02-03', 'YYYY-MM-DD'), TO_DATE('2023-02-04', 'YYYY-MM-DD'), 'Não');
+
+INSERT INTO t_permissoes (id_permissoes, id_usuario, dt_criacao_permi, dt_modificacao_permi, acesso)
+VALUES (5, 3, TO_DATE('2023-03-05', 'YYYY-MM-DD'), TO_DATE('2023-03-06', 'YYYY-MM-DD'), 'Sim');
+
+INSERT INTO t_permissoes (id_permissoes, id_usuario, dt_criacao_permi, dt_modificacao_permi, acesso)
+VALUES (6, 4, TO_DATE('2023-04-07', 'YYYY-MM-DD'), TO_DATE('2023-04-08', 'YYYY-MM-DD'), 'Sim');
+
+INSERT INTO t_permissoes (id_permissoes, id_usuario, dt_criacao_permi, dt_modificacao_permi, acesso)
+VALUES (7, 5, TO_DATE('2023-05-09', 'YYYY-MM-DD'), TO_DATE('2023-05-10', 'YYYY-MM-DD'), 'Não');
+
+INSERTS GUIA INVEST
+
+
+INSERT INTO t_guia_invest (id_guia_invest, id_provas, id_usuario, provas_assunto, provas_geral, materia_guia, descricao_provas, lista_ex, dt_inicio_guia)
+VALUES (1, 1, 1, 'IPO', 'Geral 1', 'Matéria 1', 'Descrição 1', 'Exemplo 1', TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT INTO t_guia_invest (id_guia_invest, id_provas, id_usuario, provas_assunto, provas_geral, materia_guia, descricao_provas, lista_ex, dt_inicio_guia)
+VALUES (2, 2, 2, 'Fundo Imobiliario', 'Geral 2', 'Matéria 2', 'Descrição 2', 'Exemplo 2', TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT INTO t_guia_invest (id_guia_invest, id_provas, id_usuario, provas_assunto, provas_geral, materia_guia, descricao_provas, lista_ex, dt_inicio_guia)
+VALUES (3, 3, 3, 'Investimento', 'Geral 3', 'Matéria 3', 'Descrição 3', 'Exemplo 3', TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT INTO t_guia_invest (id_guia_invest, id_provas, id_usuario, provas_assunto, provas_geral, materia_guia, descricao_provas, lista_ex, dt_inicio_guia)
+VALUES (4, 4, 4, 'B3', 'Geral 4', 'Matéria 4', 'Descrição 4', 'Exemplo 4', TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT INTO t_guia_invest (id_guia_invest, id_provas, id_usuario, provas_assunto, provas_geral, materia_guia, descricao_provas, lista_ex, dt_inicio_guia)
+VALUES (5, 5, 5, 'Renda fixa', 'Geral 5', 'Matéria 5', 'Descrição 5', 'Exemplo 5', TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT INTO t_guia_invest (id_guia_invest, id_provas, id_usuario, provas_assunto, provas_geral, materia_guia, descricao_provas, lista_ex, dt_inicio_guia)
+VALUES (6, 6, 6, 'Tesouro direto', 'Geral 6', 'Matéria 6', 'Descrição 6', 'Exemplo 6', TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT INTO t_guia_invest (id_guia_invest, id_provas, id_usuario, provas_assunto, provas_geral, materia_guia, descricao_provas, lista_ex, dt_inicio_guia)
+VALUES (7, 7, 7, 'CDBs', 'Geral 7', 'Matéria 7', 'Descrição 7', 'Exemplo 7', TO_DATE('2023-05-12', 'YYYY-MM-DD'));
+
+INSERT T_PROVAS: 
+
+INSERT INTO t_provas (id_provas, id_usuario, provas_assunto, datas_provas, result_provas_usuario, nota_prova, descricao_provas, taxa_acertividade, status_provas, duracao_provas)
+VALUES (1, 1001, 'IPO', TO_DATE('2023-05-15', 'YYYY-MM-DD'), 'Aprovado', 8.5, 'Prova IPO', 85.0, 'Concluído', TIMESTAMP '2023-05-15 14:30:00');
+
+INSERT INTO t_provas (id_provas, id_usuario, provas_assunto, datas_provas, result_provas_usuario, nota_prova, descricao_provas, taxa_acertividade, status_provas, duracao_provas)
+VALUES (2, 1002, 'Fundo Imobiliario', TO_DATE('2023-05-16', 'YYYY-MM-DD'), 'Reprovado', 5.0, 'Prova Fundo Imobiliario', 50.0, 'Concluído', TIMESTAMP '2023-05-16 10:00:00');
+
+INSERT INTO t_provas (id_provas, id_usuario, provas_assunto, datas_provas, result_provas_usuario, nota_prova, descricao_provas, taxa_acertividade, status_provas, duracao_provas)
+VALUES (3, 1003, 'Investimentos', TO_DATE('2023-05-17', 'YYYY-MM-DD'), 'Aprovado', 9.0, 'Prova Investimentos', 90.0, 'Concluído', TIMESTAMP '2023-05-17 15:45:00');
+
+INSERT INTO t_provas (id_provas, id_usuario, provas_assunto, datas_provas, result_provas_usuario, nota_prova, descricao_provas, taxa_acertividade, status_provas, duracao_provas)
+VALUES (4, 1004, 'B3', TO_DATE('2023-05-18', 'YYYY-MM-DD'), 'Aprovado', 7.5, 'B3', 75.0, 'Concluído', TIMESTAMP '2023-05-18 13:20:00');
+
+INSERT INTO t_provas (id_provas, id_usuario, provas_assunto, datas_provas, result_provas_usuario, nota_prova, descricao_provas, taxa_acertividade, status_provas, duracao_provas)
+VALUES (5, 1005, 'Renda fixa', TO_DATE('2023-05-19', 'YYYY-MM-DD'), 'Reprovado', 4.0, 'Prova Renda fixa', 40.0, 'Concluído', TIMESTAMP '2023-05-19 11:10:00');
+
+INSERT INTO t_provas (id_provas, id_usuario, provas_assunto, datas_provas, result_provas_usuario, nota_prova, descricao_provas, taxa_acertividade, status_provas, duracao_provas) 
+VALUES (6, 1006, 'Tesouro Direto', TO_DATE('2023-05-20', 'YYYY-MM-DD'), 'Aprovado', 8.0, 'Prova de tesouro direto', 80.0, 'Concluído', TIMESTAMP '2023-05-20 14:00:00');
+
+INSERT INTO t_provas (id_provas, id_usuario, provas_assunto, datas_provas, result_provas_usuario, nota_prova, descricao_provas, taxa_acertividade, status_provas, duracao_provas) 
+VALUES (7, 1007, 'CDBs', TO_DATE('2023-05-21', 'YYYY-MM-DD'), 'Aprovado', 9.5, 'CDbs', 95.0, 'Concluído', TIMESTAMP '2023-05-21 16:30:00');
+
+INSERT PREMIO USUARIO
+
+
+INSERT INTO t_premio_usuario (id_premio_usuario, id_usuario, premio_usuario, data_premiacao, data_termino_guia, data_prova, descricao_premio, certificado)
+VALUES (1, 1001, 'Prêmio A', TO_DATE('2023-05-01', 'YYYY-MM-DD'), TO_DATE('2023-05-05', 'YYYY-MM-DD'), TO_DATE('2023-04-30', 'YYYY-MM-DD'), 'Descrição Prêmio A', 'Certificado A');
+
+INSERT INTO t_premio_usuario (id_premio_usuario, id_usuario, premio_usuario, data_premiacao, data_termino_guia, data_prova, descricao_premio, certificado)
+VALUES (2, 1002, 'Prêmio B', TO_DATE('2023-05-02', 'YYYY-MM-DD'), TO_DATE('2023-05-06', 'YYYY-MM-DD'), TO_DATE('2023-05-01', 'YYYY-MM-DD'), 'Descrição Prêmio B', 'Certificado B');
+
+INSERT INTO t_premio_usuario (id_premio_usuario, id_usuario, premio_usuario, data_premiacao, data_termino_guia, data_prova, descricao_premio, certificado)
+VALUES (3, 1003, 'Prêmio C', TO_DATE('2023-05-03', 'YYYY-MM-DD'), TO_DATE('2023-05-07', 'YYYY-MM-DD'), TO_DATE('2023-05-02', 'YYYY-MM-DD'), 'Descrição Prêmio C', 'Certificado C');
+
+INSERT INTO t_premio_usuario (id_premio_usuario, id_usuario, premio_usuario, data_premiacao, data_termino_guia, data_prova, descricao_premio, certificado)
+VALUES (4, 1004, 'Prêmio D', TO_DATE('2023-05-04', 'YYYY-MM-DD'), TO_DATE('2023-05-08', 'YYYY-MM-DD'), TO_DATE('2023-05-03', 'YYYY-MM-DD'), 'Descrição Prêmio D', 'Certificado D');
+
+INSERT INTO t_premio_usuario (id_premio_usuario, id_usuario, premio_usuario, data_premiacao, data_termino_guia, data_prova, descricao_premio, certificado)
+VALUES (5, 1005, 'Prêmio E', TO_DATE('2023-05-05', 'YYYY-MM-DD'), TO_DATE('2023-05-09', 'YYYY-MM-DD'), TO_DATE('2023-05-04', 'YYYY-MM-DD'), 'Descrição Prêmio E', 'Certificado E');
+
+INSERT INTO t_premio_usuario (id_premio_usuario, id_usuario, premio_usuario, data_premiacao, data_termino_guia, data_prova, descricao_premio, certificado)
+VALUES (6, 1006, 'Prêmio F', TO_DATE('2023-05-06', 'YYYY-MM-DD'), TO_DATE('2023-05-10', 'YYYY-MM-DD'), TO_DATE('2023-05-05', 'YYYY-MM-DD'), 'Descrição Prêmio F', 'Certificado F');
+
+INSERT INTO t_premio_usuario (id_premio_usuario, id_usuario, premio_usuario, data_premiacao, data_termino_guia, data_prova, descricao_premio, certificado)
+VALUES (7, 1007, 'Prêmio G', TO_DATE('2023-05-07', 'YYYY-MM-DD'), TO_DATE('2023-05-11', 'YYYY-MM-DD'), TO_DATE('2023-05-06', 'YYYY-MM-DD'), 'Descrição Prêmio G', 'Certificado G');
