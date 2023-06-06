@@ -1,0 +1,88 @@
+CREATE TABLE t_pedidos (
+    id_pedidos         NUMBER(5) NOT NULL,
+    id_ong             NUMBER(5) ,
+    id_estab           NUMBER(5) ,
+    item_pedidos       VARCHAR2(200) NOT NULL,
+    quantidade_pedidos VARCHAR2(200) NOT NULL,
+    status_pedidos     VARCHAR2(50) NOT NULL
+);
+
+ALTER TABLE t_pedidos ADD CONSTRAINT t_pedidos_pk PRIMARY KEY ( id_pedidos );
+
+CREATE TABLE t_estabelecimento (
+    id_estab    NUMBER(5) NOT NULL,
+    nome_estab  VARCHAR2(100) NOT NULL,
+    email_estab VARCHAR2(100) NOT NULL,
+    senha_estab VARCHAR2(30) NOT NULL,
+    cnpj_estab  VARCHAR2(18) NOT NULL
+);
+
+ALTER TABLE t_estabelecimento ADD CONSTRAINT t_estabelecimento_pk PRIMARY KEY ( id_estab );
+
+CREATE TABLE t_entrega (
+    id_pedidos          NUMBER(5) NOT NULL,
+    data_entrega        DATE NOT NULL,
+    endereco_entrega    VARCHAR2(200) NOT NULL,
+    observacoes_entrega VARCHAR2(100) NOT NULL
+);
+
+ALTER TABLE t_entrega ADD CONSTRAINT t_entrega_pk PRIMARY KEY ( id_pedidos );
+
+CREATE TABLE t_endereco_estab (
+    id_endereco_estab NUMBER(5) NOT NULL,
+    id_estab          NUMBER(5),
+    cidade_estab      VARCHAR2(200) NOT NULL,
+    estado_estab      VARCHAR2(200) NOT NULL,
+    endereco_estab    VARCHAR2(300) NOT NULL
+);
+
+ALTER TABLE t_endereco_estab ADD CONSTRAINT t_endereco_estab_pk PRIMARY KEY ( id_endereco_estab,
+                                                                              id_estab );
+
+CREATE TABLE t_ong (
+    id_ong    NUMBER(5) NOT NULL,
+    nome_ong  VARCHAR2(100) NOT NULL,
+    email_ong VARCHAR2(100) NOT NULL,
+    senha_ong VARCHAR2(30) NOT NULL,
+    cnpj_ong  VARCHAR2(18) 
+);
+
+ALTER TABLE t_ong ADD CONSTRAINT t_ong_pk PRIMARY KEY ( id_ong );
+
+CREATE TABLE t_endereco_ong (
+    id_endereco_ong NUMBER(5) NOT NULL,
+    id_ong          NUMBER(5) NOT NULL,
+    endereco_ong    VARCHAR2(200) NOT NULL,
+    cidade_ong      VARCHAR2(200) NOT NULL,
+    estado_ong      VARCHAR2(200) NOT NULL
+);
+
+ALTER TABLE t_endereco_ong ADD CONSTRAINT t_endereco_ong_pk PRIMARY KEY ( id_endereco_ong,
+                                                                          id_ong );
+
+
+
+ALTER TABLE t_entrega
+    ADD CONSTRAINT fk_entrega_pedidos FOREIGN KEY ( id_pedidos )
+        REFERENCES t_pedidos ( id_pedidos );
+
+ALTER TABLE t_endereco_estab
+    ADD CONSTRAINT fk_estab_endestab FOREIGN KEY ( id_estab )
+        REFERENCES t_estabelecimento ( id_estab );
+
+ALTER TABLE t_endereco_ong
+    ADD CONSTRAINT fk_ong_endong FOREIGN KEY ( id_ong )
+        REFERENCES t_ong ( id_ong );
+
+ALTER TABLE t_pedidos
+    ADD CONSTRAINT fk_pedidos_estab FOREIGN KEY ( id_estab )
+        REFERENCES t_estabelecimento ( id_estab );
+
+ALTER TABLE t_pedidos
+    ADD CONSTRAINT fk_pedidos_ong FOREIGN KEY ( id_ong )
+        REFERENCES t_ong ( id_ong );
+
+
+
+
+
