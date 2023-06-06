@@ -1,0 +1,154 @@
+--t_pedidos--
+INSERT INTO t_pedidos (id_pedidos, id_ong, id_estab, item_pedidos, quantidade_pedidos, status_pedidos) 
+VALUES (1, 1,null,'Arroz', '2kg', 'Pendente');
+INSERT INTO t_pedidos (id_pedidos, id_ong, id_estab, item_pedidos, quantidade_pedidos, status_pedidos) 
+VALUES (2, 2, 2, 'Feijão', '1kg', 'Processando');
+INSERT INTO t_pedidos (id_pedidos, id_ong, id_estab, item_pedidos, quantidade_pedidos, status_pedidos) 
+VALUES (3, 3, 3, 'Macarrão', '5kg', 'Entregue');
+INSERT INTO t_pedidos (id_pedidos, id_ong, id_estab, item_pedidos, quantidade_pedidos, status_pedidos) 
+VALUES (4, 4, 4, 'Carne', '3kg', 'Cancelado');
+INSERT INTO t_pedidos (id_pedidos, id_ong, id_estab, item_pedidos, quantidade_pedidos, status_pedidos) 
+VALUES (5, 5, 5, 'Peixe', '1kg', 'Pendente');
+INSERT INTO t_pedidos (id_pedidos, id_ong, id_estab, item_pedidos, quantidade_pedidos, status_pedidos) 
+VALUES (6, 6, 6, 'Arroz', '4kg', 'Processando');
+INSERT INTO t_pedidos (id_pedidos, id_ong, id_estab, item_pedidos, quantidade_pedidos, status_pedidos) 
+VALUES (7, 7, 7, 'Frango', '2kg', 'Entregue');
+INSERT INTO t_pedidos (id_pedidos, id_ong, id_estab, item_pedidos, quantidade_pedidos, status_pedidos) 
+VALUES (8, 8, 8, 'Miojo', '1kg', 'Cancelado');
+INSERT INTO t_pedidos (id_pedidos, id_ong, id_estab, item_pedidos, quantidade_pedidos, status_pedidos) 
+VALUES (9, 9, null, 'Alface', '300g', 'Pendente');
+INSERT INTO t_pedidos (id_pedidos, id_ong, id_estab, item_pedidos, quantidade_pedidos, status_pedidos) 
+VALUES (10, 10, 10, 'Cenoura', '200g', 'Processando');
+
+select * from t_pedidos;
+
+--- t_estabelecimento--
+
+INSERT INTO t_estabelecimento (id_estab, nome_estab, email_estab, senha_estab, cnpj_estab)
+VALUES (1, 'Estabelecimento 1', 'estab1@example.com', 'Senha123', '12.345.678/0001-34');
+INSERT INTO t_estabelecimento (id_estab, nome_estab, email_estab, senha_estab, cnpj_estab)
+VALUES (2, 'Estabelecimento 2', 'estab2@example.com', 'Password2', '56.789.012/0001-78');
+INSERT INTO t_estabelecimento (id_estab, nome_estab, email_estab, senha_estab, cnpj_estab)
+VALUES (3, 'Estabelecimento 3', 'estab3@example.com', 'Securepwd3', '90.123.456/0001-12');
+INSERT INTO t_estabelecimento (id_estab, nome_estab, email_estab, senha_estab, cnpj_estab)
+VALUES (4, 'Estabelecimento 4', 'estab4@example.com', 'Pass1234', '34.567.890/0001-56');
+INSERT INTO t_estabelecimento (id_estab, nome_estab, email_estab, senha_estab, cnpj_estab)
+VALUES (5, 'Estabelecimento 5', 'estab5@example.com', 'Mysecretpwd2', '67.890.123/0001-89');
+INSERT INTO t_estabelecimento (id_estab, nome_estab, email_estab, senha_estab, cnpj_estab)
+VALUES (6, 'Estabelecimento 6', 'estab6@example.com', 'Password123', '01.234.567/0001-23');
+INSERT INTO t_estabelecimento (id_estab, nome_estab, email_estab, senha_estab, cnpj_estab)
+VALUES (7, 'Estabelecimento 7', 'estab7@example.com', 'Secure123', '45.678.901/0001-67');
+INSERT INTO t_estabelecimento (id_estab, nome_estab, email_estab, senha_estab, cnpj_estab)
+VALUES (8, 'Estabelecimento 8', 'estab8@example.com', 'Mypassword54', '87.890.123/0001-90');
+INSERT INTO t_estabelecimento (id_estab, nome_estab, email_estab, senha_estab, cnpj_estab)
+VALUES (9, 'Estabelecimento 9', 'estab9@example.com', 'P@ssw0rd2', '90.123.456/0001-12');
+INSERT INTO t_estabelecimento (id_estab, nome_estab, email_estab, senha_estab, cnpj_estab)
+VALUES (10, 'Estabelecimento 10', 'estab10@example.com', 'Password1234', '23.456.789/0001-45');
+select * from t_estabelecimento;
+
+--t_entrega--
+
+INSERT INTO t_entrega (id_pedidos, data_entrega, endereco_entrega, observacoes_entrega)
+VALUES (1, TO_DATE('2023-05-31', 'YYYY-MM-DD'), 'Rua A, 123 - São Paulo, SP', 'Entregar na portaria');
+INSERT INTO t_entrega (id_pedidos, data_entrega, endereco_entrega, observacoes_entrega)
+VALUES (2, TO_DATE('2023-06-01', 'YYYY-MM-DD'), 'Avenida B, 456 - Rio de Janeiro, RJ', 'Deixar na caixa de correio');
+INSERT INTO t_entrega (id_pedidos, data_entrega, endereco_entrega, observacoes_entrega)
+VALUES (3, TO_DATE('2023-06-02', 'YYYY-MM-DD'), 'Rua C, 789 - Belo Horizonte, MG', 'Ligar antes de entregar');
+INSERT INTO t_entrega (id_pedidos, data_entrega, endereco_entrega, observacoes_entrega)
+VALUES (4, TO_DATE('2023-06-03', 'YYYY-MM-DD'), 'Avenida D, 012 - Porto Alegre, RS', 'Entregar no período da tarde');
+INSERT INTO t_entrega (id_pedidos, data_entrega, endereco_entrega, observacoes_entrega)
+VALUES (5, TO_DATE('2023-06-04', 'YYYY-MM-DD'), 'Rua E, 345 - Salvador, BA', 'Deixar com o porteiro');
+INSERT INTO t_entrega (id_pedidos, data_entrega, endereco_entrega, observacoes_entrega)
+VALUES (6, TO_DATE('2023-06-05', 'YYYY-MM-DD'), 'Avenida F, 678 - Fortaleza, CE', 'Entregar no escritório');
+INSERT INTO t_entrega (id_pedidos, data_entrega, endereco_entrega, observacoes_entrega)
+VALUES (7, TO_DATE('2023-06-06', 'YYYY-MM-DD'), 'Rua G, 901 - Recife, PE', 'Chamar no interfone');
+INSERT INTO t_entrega (id_pedidos, data_entrega, endereco_entrega, observacoes_entrega)
+VALUES (8, TO_DATE('2023-06-07', 'YYYY-MM-DD'), 'Avenida H, 234 - Manaus, AM', 'Deixar na portaria');
+INSERT INTO t_entrega (id_pedidos, data_entrega, endereco_entrega, observacoes_entrega)
+VALUES (9, TO_DATE('2023-06-08', 'YYYY-MM-DD'), 'Rua I, 567 - Curitiba, PR', 'Ligar antes de entregar');
+INSERT INTO t_entrega (id_pedidos, data_entrega, endereco_entrega, observacoes_entrega)
+VALUES (10, TO_DATE('2023-06-09', 'YYYY-MM-DD'), 'Avenida J, 890 - Natal, RN', 'Entregar no período da manhã');
+
+select * from t_entrega;
+
+---t_endereco_estab--
+
+INSERT INTO t_endereco_estab (id_endereco_estab, id_estab, cidade_estab, estado_estab, endereco_estab)
+VALUES (1, 1, 'São Paulo', 'SP', 'Av. Paulista, 123');
+
+INSERT INTO t_endereco_estab (id_endereco_estab, id_estab, cidade_estab, estado_estab, endereco_estab)
+VALUES (2, 2, 'Rio de Janeiro', 'RJ', 'Rua Copacabana, 456');
+
+INSERT INTO t_endereco_estab (id_endereco_estab, id_estab, cidade_estab, estado_estab, endereco_estab)
+VALUES (3, 3, 'Belo Horizonte', 'MG', 'Av. Amazonas, 789');
+
+INSERT INTO t_endereco_estab (id_endereco_estab, id_estab, cidade_estab, estado_estab, endereco_estab)
+VALUES (4, 4, 'Porto Alegre', 'RS', 'Rua da Praia, 321');
+
+INSERT INTO t_endereco_estab (id_endereco_estab, id_estab, cidade_estab, estado_estab, endereco_estab)
+VALUES (5, 5, 'Brasília', 'DF', 'Esplanada dos Ministérios, 987');
+
+INSERT INTO t_endereco_estab (id_endereco_estab, id_estab, cidade_estab, estado_estab, endereco_estab)
+VALUES (6, 6, 'Salvador', 'BA', 'Av. Oceânica, 654');
+
+INSERT INTO t_endereco_estab (id_endereco_estab, id_estab, cidade_estab, estado_estab, endereco_estab)
+VALUES (7, 7, 'Recife', 'PE', 'Av. Boa Viagem, 321');
+
+INSERT INTO t_endereco_estab (id_endereco_estab, id_estab, cidade_estab, estado_estab, endereco_estab)
+VALUES (8, 8, 'Curitiba', 'PR', 'Rua das Flores, 654');
+
+INSERT INTO t_endereco_estab (id_endereco_estab, id_estab, cidade_estab, estado_estab, endereco_estab)
+VALUES (9, 9, 'Fortaleza', 'CE', 'Av. Beira Mar, 987');
+
+INSERT INTO t_endereco_estab (id_endereco_estab, id_estab, cidade_estab, estado_estab, endereco_estab)
+VALUES (10, 10, 'Manaus', 'AM', 'Av. Eduardo Ribeiro, 321');
+select * from t_endereco_estab;
+
+---t_ong----
+
+INSERT INTO t_ong (id_ong, nome_ong, email_ong, senha_ong, cnpj_ong)
+VALUES (1, 'ONG A', 'onga@example.com', 'Senha123', '12.345.678/0001-34');
+
+INSERT INTO t_ong (id_ong, nome_ong, email_ong, senha_ong, cnpj_ong)
+VALUES (2, 'ONG B', 'ongb@example.com', 'Senha456', '23.456.789/0001-45');
+
+INSERT INTO t_ong (id_ong, nome_ong, email_ong, senha_ong, cnpj_ong)
+VALUES (3, 'ONG C', 'ongc@example.com', 'Senha789', '34.567.890/0001-56');
+
+INSERT INTO t_ong (id_ong, nome_ong, email_ong, senha_ong, cnpj_ong)
+VALUES (4, 'ONG D', 'ongd@example.com', 'Senhaabc3', '45.678.901/0001-67');
+
+INSERT INTO t_ong (id_ong, nome_ong, email_ong, senha_ong, cnpj_ong)
+VALUES (5, 'ONG E', 'onge@example.com', 'Senhadef4', '56.789.012/0001-78');
+
+INSERT INTO t_ong (id_ong, nome_ong, email_ong, senha_ong, cnpj_ong)
+VALUES (6, 'ONG F', 'ongf@example.com', 'Senhaghi3', '67.890.123/0001-89');
+
+INSERT INTO t_ong (id_ong, nome_ong, email_ong, senha_ong, cnpj_ong)
+VALUES (7, 'ONG G', 'ongg@example.com', 'Senhajkl5', '78.901.234/0001-90');
+
+INSERT INTO t_ong (id_ong, nome_ong, email_ong, senha_ong, cnpj_ong)
+VALUES (8, 'ONG H', 'ongh@example.com', 'Senhamno4', '89.012.345/0001-01');
+
+INSERT INTO t_ong (id_ong, nome_ong, email_ong, senha_ong, cnpj_ong)
+VALUES (9, 'ONG I', 'ongi@example.com', 'Senhaqrs2', '90.123.456/0001-12');
+
+INSERT INTO t_ong (id_ong, nome_ong, email_ong, senha_ong, cnpj_ong)
+VALUES (10, 'ONG J', 'ongj@example.com', 'Senhautv5', '01.234.567/0001-23');
+
+select * from t_ong;
+
+--t_endereco_ong---
+
+INSERT INTO t_endereco_ong (id_endereco_ong, id_ong, endereco_ong, cidade_ong, estado_ong) VALUES (1, 1, 'Rua A, 123', 'São Paulo', 'SP');
+INSERT INTO t_endereco_ong (id_endereco_ong, id_ong, endereco_ong, cidade_ong, estado_ong) VALUES (2, 2, 'Avenida B, 456', 'Rio de Janeiro', 'RJ');
+INSERT INTO t_endereco_ong (id_endereco_ong, id_ong, endereco_ong, cidade_ong, estado_ong) VALUES (3, 3, 'Rua C, 789', 'Belo Horizonte', 'MG');
+INSERT INTO t_endereco_ong (id_endereco_ong, id_ong, endereco_ong, cidade_ong, estado_ong) VALUES (4, 4, 'Rua D, 321', 'Porto Alegre', 'RS');
+INSERT INTO t_endereco_ong (id_endereco_ong, id_ong, endereco_ong, cidade_ong, estado_ong) VALUES (5, 5, 'Avenida E, 654', 'Salvador', 'BA');
+INSERT INTO t_endereco_ong (id_endereco_ong, id_ong, endereco_ong, cidade_ong, estado_ong) VALUES (6, 6, 'Rua F, 987', 'Fortaleza', 'CE');
+INSERT INTO t_endereco_ong (id_endereco_ong, id_ong, endereco_ong, cidade_ong, estado_ong) VALUES (7, 7, 'Rua G, 123', 'Recife', 'PE');
+INSERT INTO t_endereco_ong (id_endereco_ong, id_ong, endereco_ong, cidade_ong, estado_ong) VALUES (8, 8, 'Avenida H, 456', 'Manaus', 'AM');
+INSERT INTO t_endereco_ong (id_endereco_ong, id_ong, endereco_ong, cidade_ong, estado_ong) VALUES (9, 9, 'Rua I, 789', 'Curitiba', 'PR');
+INSERT INTO t_endereco_ong (id_endereco_ong, id_ong, endereco_ong, cidade_ong, estado_ong) VALUES (10, 10, 'Rua J, 321', 'Natal', 'RN');
+
+select * from t_endereco_ong;
