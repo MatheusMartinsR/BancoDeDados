@@ -1,0 +1,33 @@
+--consulta simples--
+SELECT p.id_pedidos, p.item_pedidos, p.status_pedidos
+FROM t_pedidos p
+WHERE p.id_ong = 1
+ORDER BY p.id_pedidos DESC;
+--Explicação: Esse código SQL seleciona os pedidos (id_pedidos, item_pedidos e status_pedidos) da tabela t_pedidos relacionados à ONG com ID 1, ordenando-os pelo ID dos pedidos em ordem decrescente.--
+
+--consulta envolvendo uma ou mais junções de tabela, contendo select/from/where/order by-----
+SELECT p.id_pedidos, p.item_pedidos, p.status_pedidos, o.nome_ong, e.endereco_entrega
+FROM t_pedidos p
+JOIN t_ong o ON p.id_ong = o.id_ong
+JOIN t_entrega e ON p.id_pedidos = e.id_pedidos
+WHERE e.data_entrega >= DATE '2023-01-01'
+ORDER BY p.id_pedidos DESC;
+--Explicação: 
+Esse código SQL seleciona informações dos pedidos (id, item e status), juntamente com o nome da ONG e o endereço de entrega. Ele filtra os pedidos com data de entrega a partir de 1º de janeiro de 2023 e os ordena pelo ID dos pedidos em ordem decrescente.--
+
+
+--uma consulta envolvendo função de grupo e agrupamento--
+SELECT t_estabelecimento.nome_estab, COUNT(t_pedidos.id_pedidos) AS quantidade_pedidos
+FROM t_estabelecimento
+JOIN t_pedidos ON t_estabelecimento.id_estab = t_pedidos.id_estab
+GROUP BY t_estabelecimento.nome_estab;
+--Explicação: Esse código seleciona o nome do estabelecimento da tabela 't_estabelecimento' e contando a quantidade de pedidos('id_pedidos') relacionados a cada estabelecimento. O resultado será agrupado pelo nome do estabelecimento--
+
+--uma consulta envolvendo função de grupo, agrupamento com filtro(having) e junção de tabelas--
+SELECT e.nome_estab, COUNT(*) AS total_pedidos
+FROM t_estabelecimento e
+JOIN t_pedidos p ON e.id_estab = p.id_estab
+GROUP BY e.nome_estab
+HAVING COUNT(*) > 0;
+--
+Esse código SQL conta o número total de pedidos para cada estabelecimento na tabela t_estabelecimento, excluindo aqueles que não têm pedidos associados. Ele retorna o nome do estabelecimento e o total de pedidos para cada estabelecimento.--
